@@ -1,0 +1,3 @@
+# Runtime dependencies of the AI service (phase 2+).
+# Intentionally empty: no AI library, vector database or chatbot is installed
+# in phase 1. Dependabot (pip ecosystem) watches this file.
