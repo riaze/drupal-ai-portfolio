@@ -1,0 +1,30 @@
+# French translation of the Portfolio content module.
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio_content\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Your details are only used to reply to your message."
+msgstr "Vos informations servent uniquement à répondre à votre message."
+
+msgid "Your details are only used to reply to your message. See the <a href=\":url\">privacy policy</a>."
+msgstr "Vos informations servent uniquement à répondre à votre message. Voir la <a href=\":url\">politique de confidentialité</a>."
+
+msgid "Write in <a href=\":url\">Markdown</a>. Start sections with <code>##</code>. HTML tags are shown as text."
+msgstr "Rédigez en <a href=\":url\">Markdown</a>. Commencez les sections par <code>##</code>. Les balises HTML sont affichées telles quelles."
+
+msgid "Markdown (CommonMark, raw HTML escaped)"
+msgstr "Markdown (CommonMark, HTML brut échappé)"
+
+msgid "The summary when filled in, otherwise the beginning of the body as plain text (at most @max characters)."
+msgstr "Le résumé s’il est rempli, sinon le début du contenu en texte brut (@max caractères au plus)."
+
+msgid "Send a message."
+msgstr "Envoyer un message."
+
+msgid "Frequently asked questions."
+msgstr "Questions fréquentes."

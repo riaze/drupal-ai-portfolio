@@ -3,3 +3,4 @@ services:
     autowire: true
 
   Drupal\portfolio_content\NodeDescriber: ~
+  Drupal\portfolio_content\Import\ContentImporter: ~

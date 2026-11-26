@@ -1,0 +1,13 @@
+portfolio_content.contact:
+  title: 'Contact'
+  description: 'Send a message.'
+  route_name: contact.site_page
+  menu_name: main
+  weight: 50
+
+portfolio_content.faq:
+  title: 'FAQ'
+  description: 'Frequently asked questions.'
+  route_name: view.faq.page_1
+  menu_name: footer
+  weight: 0

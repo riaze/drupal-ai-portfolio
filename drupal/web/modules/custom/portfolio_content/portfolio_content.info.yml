@@ -9,3 +9,5 @@ dependencies:
   - drupal:node
   - drupal:path_alias
   - drupal:taxonomy
+'interface translation project': portfolio_content
+'interface translation server pattern': modules/custom/portfolio_content/translations/%language.po

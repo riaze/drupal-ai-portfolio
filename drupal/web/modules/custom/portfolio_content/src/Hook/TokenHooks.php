@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\portfolio_content\Hook;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -13,6 +14,9 @@ use Drupal\portfolio_content\NodeDescriber;
 /**
  * Provides [node:portfolio_description] for meta and Open Graph descriptions.
  *
+ * Falls back to the site slogan for a page without text yet, so no page is
+ * ever published without a description.
+ *
  * @see \Drupal\portfolio_content\NodeDescriber
  */
 final class TokenHooks {
@@ -21,6 +25,7 @@ final class TokenHooks {
 
   public function __construct(
     private readonly NodeDescriber $describer,
+    private readonly ConfigFactoryInterface $configFactory,
   ) {}
 
   /**
@@ -71,7 +76,13 @@ final class TokenHooks {
       $node = $node->getTranslation($langcode);
     }
     $bubbleable_metadata->addCacheableDependency($node);
-    return [$tokens['portfolio_description'] => $this->describer->describe($node)];
+    $description = $this->describer->describe($node);
+    if ($description === '') {
+      $site = $this->configFactory->get('system.site');
+      $bubbleable_metadata->addCacheableDependency($site);
+      $description = (string) $site->get('slogan');
+    }
+    return [$tokens['portfolio_description'] => $description];
   }
 
 }
