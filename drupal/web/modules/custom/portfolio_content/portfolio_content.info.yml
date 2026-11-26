@@ -1,0 +1,11 @@
+name: 'Portfolio content'
+type: module
+description: 'Markdown text format, description token and the idempotent importer for the Markdown files in content/.'
+package: Portfolio
+core_version_requirement: ^11
+dependencies:
+  - drupal:filter
+  - drupal:menu_link_content
+  - drupal:node
+  - drupal:path_alias
+  - drupal:taxonomy
