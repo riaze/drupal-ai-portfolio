@@ -1,0 +1,116 @@
+# Continuous integration: every pull request and every push to main.
+# Third-party actions are pinned to commit SHAs (Dependabot keeps them current).
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  drupal:
+    name: Drupal (lint, tests, config)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: drupal
+    services:
+      # Same engine as DDEV and production. A fresh install on SQLite would
+      # enable the sqlite driver module and differ from config/sync.
+      mariadb:
+        image: mariadb:11.8
+        env:
+          MARIADB_DATABASE: drupal
+          MARIADB_USER: drupal
+          MARIADB_PASSWORD: drupal
+          MARIADB_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: "8.3"
+          extensions: gd, pdo_mysql, pdo_sqlite, intl, zip
+          coverage: none
+          tools: composer:v2
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict --no-check-publish
+
+      - name: Locate the Composer cache
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ runner.os }}-php8.3-${{ hashFiles('drupal/composer.lock') }}
+          restore-keys: composer-${{ runner.os }}-php8.3-
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Security advisories
+        run: composer audit --locked --abandoned=report
+
+      - name: PHPCS (Drupal, DrupalPractice)
+        run: vendor/bin/phpcs
+
+      - name: PHPStan
+        run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
+
+      - name: PHPUnit (unit and kernel)
+        run: vendor/bin/phpunit --testsuite=custom
+
+      - name: Install the site from config/sync
+        run: >-
+          vendor/bin/drush site:install --existing-config --yes
+          --db-url=mysql://drupal:drupal@127.0.0.1:3306/drupal
+          --account-name=admin
+
+      # Core deletes English after a French install from config when nothing
+      # had to be reverted (install_config_revert_install_changes()); a deploy
+      # re-imports config/sync, as on any real deployment.
+      - name: Apply config/sync (drush deploy)
+        run: vendor/bin/drush deploy --yes
+
+      - name: Config check (code and exported config must match)
+        run: scripts/config-check.sh
+
+      - name: Validate content/ (import dry run)
+        run: vendor/bin/drush portfolio:import-content --dry-run
+
+  secret-scan:
+    name: Secret scan (gitleaks, full history)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GITLEAKS_VERSION: "8.30.1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Install gitleaks (checksum verified)
+        run: |
+          base="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}"
+          archive="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -sSfLO "${base}/${archive}"
+          curl -sSfL "${base}/gitleaks_${GITLEAKS_VERSION}_checksums.txt" | grep " ${archive}$" | sha256sum --check -
+          tar -xzf "${archive}" gitleaks
+
+      - name: Scan the Git history
+        run: ./gitleaks git --redact --verbose --no-banner .
