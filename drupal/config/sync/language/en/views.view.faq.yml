@@ -1,0 +1,8 @@
+description: 'Frequently asked questions, grouped by category.'
+display:
+  default:
+    display_options:
+      title: 'Frequently asked questions'
+      empty:
+        area_text_custom:
+          content: 'No question published yet.'

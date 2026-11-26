@@ -1,0 +1,7 @@
+features:
+  logo: false
+  favicon: true
+  slogan: false
+  name: true
+logo:
+  use_default: false

@@ -1,0 +1,127 @@
+<?php
+
+/**
+ * @file
+ * Preprocess functions of the Portfolio theme.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Language\LanguageManager;
+use Drupal\node\NodeInterface;
+use Drupal\portfolio_content\NodeDescriber;
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function portfolio_preprocess_html(array &$variables): void {
+  if (!empty($variables['is_front'])) {
+    $variables['attributes']['class'][] = 'path-frontpage';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function portfolio_preprocess_page(array &$variables): void {
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+  $variables['copyright_year'] = date('Y');
+  CacheableMetadata::createFromRenderArray($variables)
+    ->addCacheableDependency($config)
+    ->addCacheContexts(['languages:language_interface'])
+    ->applyTo($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for links--language-block.html.twig.
+ *
+ * Each language is named in its own language ("Français", "English") and
+ * carries lang/hreflang attributes so screen readers pronounce it correctly.
+ */
+function portfolio_preprocess_links__language_block(array &$variables): void {
+  $names = LanguageManager::getStandardLanguageList();
+  foreach ($variables['links'] as $langcode => &$link) {
+    if (!isset($link['link']) || !is_string($langcode)) {
+      continue;
+    }
+    $link['link']['#title'] = $names[$langcode][1] ?? $langcode;
+    $link['link']['#options']['attributes']['lang'] = $langcode;
+    $link['link']['#options']['attributes']['hreflang'] = $langcode;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for field templates.
+ */
+function portfolio_theme_suggestions_field_alter(array &$suggestions, array $variables): void {
+  $name = $variables['element']['#field_name'] ?? '';
+  $map = [
+    'field_problem' => 'field__portfolio_section',
+    'field_solution' => 'field__portfolio_section',
+    'field_results' => 'field__portfolio_section',
+    'field_stack' => 'field__portfolio_chips',
+    'field_tags' => 'field__portfolio_chips',
+    'field_cta' => 'field__portfolio_inline',
+    'field_repo_link' => 'field__portfolio_inline',
+    'field_demo_link' => 'field__portfolio_inline',
+    'field_published_date' => 'field__portfolio_inline',
+  ];
+  if (isset($map[$name])) {
+    $suggestions[] = $map[$name];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for field templates.
+ *
+ * Link fields render as buttons; repository and demo links get explicit
+ * labels instead of a bare URL.
+ */
+function portfolio_preprocess_field(array &$variables): void {
+  $buttons = [
+    'field_cta' => ['button', NULL],
+    'field_demo_link' => ['button', t('See the demo')],
+    'field_repo_link' => ['button button--secondary', t('View the code')],
+  ];
+  $name = $variables['field_name'] ?? '';
+  if (!isset($buttons[$name])) {
+    return;
+  }
+  [$class, $title] = $buttons[$name];
+  foreach ($variables['items'] as &$item) {
+    $item['content']['#options']['attributes']['class'][] = $class;
+    if ($title !== NULL) {
+      $item['content']['#title'] = $title;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ */
+function portfolio_preprocess_node(array &$variables): void {
+  $node = $variables['node'] ?? NULL;
+  if (!$node instanceof NodeInterface || $variables['view_mode'] !== 'teaser') {
+    return;
+  }
+  $variables['description'] = \Drupal::service(NodeDescriber::class)->describe($node, 220);
+  $variables['heading_level'] = $variables['elements']['#portfolio_heading_level'] ?? 2;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for views-view-unformatted.html.twig.
+ *
+ * Cards are <h2> on listing pages and <h3> inside front page sections, whose
+ * block title is the <h2>. The level is part of the render cache keys.
+ */
+function portfolio_preprocess_views_view_unformatted(array &$variables): void {
+  $level = $variables['view']->display_handler->getPluginId() === 'block' ? 3 : 2;
+  foreach ($variables['rows'] as &$row) {
+    if (isset($row['content']['#node'])) {
+      $row['content']['#portfolio_heading_level'] = $level;
+      $row['content']['#cache']['keys'][] = 'h' . $level;
+    }
+  }
+}

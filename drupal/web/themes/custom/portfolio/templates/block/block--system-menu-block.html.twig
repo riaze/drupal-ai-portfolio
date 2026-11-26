@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Menus are <nav> landmarks named with aria-label (no hidden heading, so the
+ * heading outline starts with the page title).
+ */
+#}
+{% set nav_class = elements['#derivative_plugin_id'] == 'main' ? 'site-nav' : 'footer-nav' %}
+{% set nav_label = elements['#derivative_plugin_id'] == 'main' ? 'Main navigation'|t : 'Footer navigation'|t %}
+<nav{{ attributes.addClass(nav_class).setAttribute('aria-label', nav_label) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {{ content }}
+</nav>

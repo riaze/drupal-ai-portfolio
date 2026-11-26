@@ -1,0 +1,18 @@
+label: 'Case studies'
+description: 'Published case studies, newest first.'
+display:
+  default:
+    display_options:
+      title: 'Case studies'
+      empty:
+        area_text_custom:
+          content: 'No case study published yet.'
+  page_1:
+    display_options:
+      menu:
+        title: 'Case studies'
+  block_1:
+    display_options:
+      block_description: 'Case studies (front page)'
+      use_more_text: 'All case studies'
+      title: 'Recent case studies'

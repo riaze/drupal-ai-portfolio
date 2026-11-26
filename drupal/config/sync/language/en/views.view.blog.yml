@@ -1,0 +1,16 @@
+description: 'Published articles, by publication date.'
+display:
+  default:
+    display_options:
+      empty:
+        area_text_custom:
+          content: 'No article published yet.'
+  page_1:
+    display_options:
+      menu:
+        title: Blog
+  block_1:
+    display_options:
+      block_description: 'Latest articles (front page)'
+      title: 'Latest articles'
+      use_more_text: 'All articles'

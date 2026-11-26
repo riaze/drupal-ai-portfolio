@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Card used in listings. The whole card is clickable through the title link;
+ * heading_level is 2 on listing pages and 3 inside front page sections.
+ */
+#}
+{% set heading = 'h' ~ heading_level|default(2) %}
+<article{{ attributes.addClass('card', 'card--' ~ node.bundle|clean_class) }}>
+  {% if content.field_image|render %}
+    <div class="card__media">{{ content.field_image }}</div>
+  {% endif %}
+  <div class="card__body">
+    {{ title_prefix }}
+    <{{ heading }}{{ title_attributes.addClass('card__title') }}>
+      <a href="{{ url }}" rel="bookmark" class="card__link">{{ label }}</a>
+    </{{ heading }}>
+    {{ title_suffix }}
+    {% if content.field_published_date|render %}
+      <p class="card__meta">{{ content.field_published_date }}</p>
+    {% endif %}
+    {% if description %}
+      <p class="card__text">{{ description }}</p>
+    {% endif %}
+    {{ content|without('field_image', 'field_published_date', 'field_cta') }}
+  </div>
+</article>

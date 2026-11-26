@@ -1,0 +1,10 @@
+{#
+/**
+ * @file
+ * A question and its answer.
+ */
+#}
+<details class="faq">
+  <summary>{{ fields.title.content|striptags|trim }}</summary>
+  <div class="faq__answer">{{ fields.body.content }}</div>
+</details>

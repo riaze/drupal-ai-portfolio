@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Flat menu: the site has a single level of navigation.
+ */
+#}
+{% if items %}
+  <ul>
+    {% for item in items %}
+      <li>{{ link(item.title, item.url) }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}

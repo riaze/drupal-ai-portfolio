@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Language switcher. Each link is labelled in its own language (lang and
+ * hreflang attributes are set in portfolio_preprocess_links__language_block).
+ */
+#}
+<nav{{ attributes.addClass('language-switcher').setAttribute('aria-label', 'Language'|t) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {{ content }}
+</nav>

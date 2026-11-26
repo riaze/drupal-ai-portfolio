@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Views wrapper without the default markup noise.
+ */
+#}
+<div{{ attributes.addClass('view', 'view-' ~ id|clean_class) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+  {{ header }}
+  {{ exposed }}
+  {{ attachment_before }}
+  {% if rows -%}
+    {{ rows }}
+  {% elseif empty -%}
+    <p>{{ empty }}</p>
+  {% endif %}
+  {{ pager }}
+  {{ attachment_after }}
+  {% if more %}
+    <p class="more-link">{{ more }}</p>
+  {% endif %}
+  {{ footer }}
+  {{ feed_icons }}
+</div>

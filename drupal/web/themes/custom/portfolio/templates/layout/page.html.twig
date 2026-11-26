@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Page layout: header, main content, footer landmarks.
+ */
+#}
+<div class="site">
+  <header class="site-header">
+    <div class="container site-header__inner">
+      {{ page.header }}
+    </div>
+  </header>
+
+  {% if page.highlighted %}
+    <div class="container">
+      {{ page.highlighted }}
+    </div>
+  {% endif %}
+
+  <main id="main-content" class="site-main" tabindex="-1">
+    <div class="container">
+      {{ page.content }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      {{ page.footer }}
+      <p class="site-footer__copyright">© {{ copyright_year }} {{ site_name }}</p>
+    </div>
+  </footer>
+</div>

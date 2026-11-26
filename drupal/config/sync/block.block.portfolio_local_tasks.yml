@@ -1,0 +1,20 @@
+uuid: f5071a37-da60-4e57-a460-851e47a8a749
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - portfolio
+id: portfolio_local_tasks
+theme: portfolio
+region: content
+weight: 1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: ''
+  label_display: '0'
+  provider: local_tasks_block
+  primary: true
+  secondary: true
+visibility: {  }

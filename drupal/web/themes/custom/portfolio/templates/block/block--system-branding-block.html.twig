@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Site name, linked to the front page. Not a heading: the page title is the
+ * only <h1>.
+ */
+#}
+{{ title_prefix }}
+{{ title_suffix }}
+{% if site_name %}
+  <a href="{{ path('<front>') }}" rel="home" class="site-branding">{{ site_name }}</a>
+{% endif %}

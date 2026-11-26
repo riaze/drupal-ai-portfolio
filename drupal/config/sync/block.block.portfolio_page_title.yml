@@ -1,0 +1,18 @@
+uuid: 71b23d41-5605-4cbe-a429-3a9ba5c6e196
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - portfolio
+id: portfolio_page_title
+theme: portfolio
+region: content
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: ''
+  label_display: '0'
+  provider: page_title_block
+visibility: {  }

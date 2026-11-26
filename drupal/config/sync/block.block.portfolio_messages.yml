@@ -1,0 +1,20 @@
+uuid: 4e7839ce-0a41-439b-9111-0ffd1e6ce2bb
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - portfolio
+id: portfolio_messages
+theme: portfolio
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: ''
+  label_display: '0'
+  provider: system_messages_block
+visibility: {  }

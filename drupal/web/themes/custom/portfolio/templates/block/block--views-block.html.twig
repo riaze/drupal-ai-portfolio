@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Front page sections built from views blocks.
+ */
+#}
+<section{{ attributes.addClass('home-section') }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {{ content }}
+</section>

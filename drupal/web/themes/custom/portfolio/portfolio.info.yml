@@ -1,0 +1,15 @@
+name: Portfolio
+type: theme
+description: 'Lightweight, accessible theme for the Drupal and AI portfolio: no framework, no web fonts, no JavaScript, light and dark color schemes.'
+package: Portfolio
+core_version_requirement: ^11
+base theme: false
+libraries:
+  - portfolio/global
+regions:
+  header: 'Header'
+  highlighted: 'Highlighted'
+  content: 'Content'
+  footer: 'Footer'
+'interface translation project': portfolio
+'interface translation server pattern': themes/custom/portfolio/translations/%language.po

@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Technologies and tags as a list of chips.
+ */
+#}
+<div{{ attributes.addClass('chips', 'field--name-' ~ field_name|clean_class) }}>
+  {% if not label_hidden %}
+    <span{{ title_attributes.addClass('chips__label') }}>{{ label }}</span>
+  {% endif %}
+  <ul class="chips__list">
+    {% for item in items %}
+      <li class="chip">{{ item.content }}</li>
+    {% endfor %}
+  </ul>
+</div>

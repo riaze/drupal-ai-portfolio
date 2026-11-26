@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Full content. The title is printed by the page title block (<h1>).
+ */
+#}
+<article{{ attributes.addClass('node', 'node--' ~ node.bundle|clean_class, view_mode ? 'node--' ~ view_mode|clean_class) }}>
+  {{ title_prefix }}
+  {% if label and not page %}
+    <h2{{ title_attributes }}><a href="{{ url }}" rel="bookmark">{{ label }}</a></h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content|without('field_repo_link', 'field_demo_link', 'field_cta') }}
+    {% if content.field_cta|render or content.field_repo_link|render or content.field_demo_link|render %}
+      <p class="actions">
+        {{ content.field_cta }}
+        {{ content.field_demo_link }}
+        {{ content.field_repo_link }}
+      </p>
+    {% endif %}
+  </div>
+</article>

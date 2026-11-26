@@ -1,0 +1,23 @@
+uuid: be13ac0b-eb91-43ae-a2ed-f2550abe9281
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - portfolio
+id: portfolio_branding
+theme: portfolio
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: ''
+  label_display: '0'
+  provider: system_branding_block
+  use_site_logo: false
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

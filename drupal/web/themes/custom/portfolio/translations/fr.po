@@ -1,0 +1,27 @@
+# French translation of the Portfolio theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Skip to main content"
+msgstr "Aller au contenu principal"
+
+msgid "Main navigation"
+msgstr "Navigation principale"
+
+msgid "Footer navigation"
+msgstr "Navigation de pied de page"
+
+msgid "Language"
+msgstr "Langue"
+
+msgid "See the demo"
+msgstr "Voir la démo"
+
+msgid "View the code"
+msgstr "Voir le code"

@@ -1,0 +1,17 @@
+label: Services
+display:
+  default:
+    display_options:
+      title: Services
+      empty:
+        area_text_custom:
+          content: 'No service published yet.'
+  page_1:
+    display_options:
+      menu:
+        title: Services
+  block_1:
+    display_options:
+      block_description: 'Services (front page)'
+      use_more_text: 'All services'
+      title: Services

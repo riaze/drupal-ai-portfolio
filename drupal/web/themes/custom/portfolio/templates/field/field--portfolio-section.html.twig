@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Case study sections (problem, solution, results): the label is a real
+ * <h2> so the page outline is navigable with a screen reader.
+ */
+#}
+<section{{ attributes.addClass('field', 'field--name-' ~ field_name|clean_class) }}>
+  <h2{{ title_attributes }}>{{ label }}</h2>
+  {% for item in items %}{{ item.content }}{% endfor %}
+</section>

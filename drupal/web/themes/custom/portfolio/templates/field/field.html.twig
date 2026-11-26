@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Lean field markup.
+ */
+#}
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+  ]
+%}
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes.addClass(classes) }}>
+      {% for item in items %}{{ item.content }}{% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes.addClass(classes) }}>{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+    <div{{ title_attributes.addClass('field__label') }}>{{ label }}</div>
+    {% for item in items %}<div>{{ item.content }}</div>{% endfor %}
+  </div>
+{% endif %}

@@ -1,0 +1,25 @@
+uuid: d6b00046-6629-4de0-87fc-97654b5802a0
+langcode: fr
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - portfolio
+id: portfolio_main_menu
+theme: portfolio
+region: header
+weight: 1
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: ''
+  label_display: '0'
+  provider: system_menu_block
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

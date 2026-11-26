@@ -1,0 +1,29 @@
+uuid: 52765183-3e04-4787-b01f-44239cc94519
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.services
+  module:
+    - system
+    - views
+  theme:
+    - portfolio
+id: portfolio_home_services
+theme: portfolio
+region: content
+weight: 3
+provider: null
+plugin: 'views_block:services-block_1'
+settings:
+  id: 'views_block:services-block_1'
+  label: ''
+  label_display: visible
+  provider: views_block
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

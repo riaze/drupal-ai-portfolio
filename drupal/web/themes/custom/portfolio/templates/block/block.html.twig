@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Generic block: no wrapper unless the block has a visible title.
+ */
+#}
+{% if label %}
+  <section{{ attributes.addClass('block') }}>
+    {{ title_prefix }}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+    {{ title_suffix }}
+    {{ content }}
+  </section>
+{% else %}
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {{ content }}
+{% endif %}

@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Rows as a card grid.
+ */
+#}
+{% if title %}
+  <h2>{{ title }}</h2>
+{% endif %}
+<div class="view-content">
+  {% for row in rows %}
+    {{ row.content }}
+  {% endfor %}
+</div>
