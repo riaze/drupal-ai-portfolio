@@ -1,0 +1,9 @@
+# Mounts the monorepo's content/ directory (Markdown sources, see
+# content/README.md) read-only into the web container at /var/www/content.
+# That is "../content" relative to the Composer root (/var/www/html), the same
+# relative path as on the host and in CI, so the import command needs no
+# environment-specific configuration.
+services:
+  web:
+    volumes:
+      - ../../content:/var/www/content:ro
