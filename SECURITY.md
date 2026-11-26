@@ -4,10 +4,10 @@
 
 Please **do not open a public issue** for a security problem.
 
-Report it privately through the contact form of the production site, with
-"Security" as the subject, or by a private GitHub Security Advisory on this
-repository if you have access. Include the affected URL or file, the steps to
-reproduce and the impact you expect.
+Report it privately with GitHub's **Report a vulnerability** button
+(Security tab of this repository), or through the contact form of the
+production site with "Security" as the subject. Include the affected URL or
+file, the steps to reproduce and the impact you expect.
 
 You will get an acknowledgement within 5 working days. A fix, or a mitigation
 plan, follows within 30 days for confirmed issues.
