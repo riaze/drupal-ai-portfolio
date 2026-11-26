@@ -1,0 +1,5 @@
+services:
+  # Placeholder: replaced in phase 2 by an HTTP client of ai-service/.
+  ai_bridge.bridge:
+    class: Drupal\ai_bridge\NullAiBridge
+  Drupal\ai_bridge\AiBridgeInterface: '@ai_bridge.bridge'

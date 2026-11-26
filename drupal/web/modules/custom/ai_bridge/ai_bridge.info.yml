@@ -1,0 +1,5 @@
+name: 'AI bridge'
+type: module
+description: 'Seam between Drupal and the future Python AI service. Placeholder only: no AI library, no provider, no network call.'
+package: Portfolio
+core_version_requirement: ^11
