@@ -1,0 +1,8 @@
+uuid: e51eefd5-c9cc-44d7-8e20-555325d293bd
+langcode: fr
+status: true
+dependencies: {  }
+id: node__service
+label: 'Contenu : Service'
+tags:
+  description: '[node:portfolio_description]'

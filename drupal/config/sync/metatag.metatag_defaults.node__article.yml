@@ -1,0 +1,8 @@
+uuid: b3fa6861-e20a-436d-a503-397aef84eabb
+langcode: fr
+status: true
+dependencies: {  }
+id: node__article
+label: 'Contenu : Article'
+tags:
+  description: '[node:portfolio_description]'

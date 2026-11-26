@@ -1,0 +1,8 @@
+uuid: 162568fe-ef98-4f68-b190-9b82780fc67a
+langcode: fr
+status: true
+dependencies: {  }
+id: node__case_study
+label: 'Contenu : Étude de cas'
+tags:
+  description: '[node:portfolio_description]'

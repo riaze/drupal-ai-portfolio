@@ -6,3 +6,4 @@ id: node__faq
 label: 'Contenu : FAQ'
 tags:
   robots: 'noindex, follow'
+  description: '[node:portfolio_description]'

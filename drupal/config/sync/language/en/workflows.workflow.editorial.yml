@@ -1,18 +1,18 @@
-label: Editorial
 type_settings:
   states:
-    draft:
-      label: Draft
     review:
       label: 'In review'
+    draft:
+      label: Draft
     published:
       label: Published
   transitions:
-    create_new_draft:
-      label: 'Create new draft'
     submit_for_review:
       label: 'Submit for review'
     send_back:
       label: 'Send back to draft'
+    create_new_draft:
+      label: 'Create New Draft'
     publish:
       label: Publish
+label: Editorial

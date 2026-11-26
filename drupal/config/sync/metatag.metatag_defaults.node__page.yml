@@ -1,0 +1,8 @@
+uuid: 39c8b5eb-c133-465f-a316-8363916c946e
+langcode: fr
+status: true
+dependencies: {  }
+id: node__page
+label: 'Contenu : Page'
+tags:
+  description: '[node:portfolio_description]'
