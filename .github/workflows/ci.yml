@@ -6,6 +6,8 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Manual runs from the Actions tab, e.g. to re-check main after a hosting change.
+  workflow_dispatch:
 
 permissions:
   contents: read
