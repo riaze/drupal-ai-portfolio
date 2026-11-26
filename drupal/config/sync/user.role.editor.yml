@@ -1,0 +1,52 @@
+uuid: 96cbac84-8dd7-444b-81a9-3232522512ff
+langcode: fr
+status: true
+dependencies:
+  config:
+    - filter.format.markdown
+    - node.type.article
+    - node.type.case_study
+    - node.type.faq
+    - node.type.page
+    - node.type.service
+    - taxonomy.vocabulary.stack
+    - taxonomy.vocabulary.tags
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - content_translation
+    - filter
+    - node
+    - path
+    - system
+    - taxonomy
+    - toolbar
+id: editor
+label: Rédacteur
+weight: 2
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create article content'
+  - 'create case_study content'
+  - 'create content translations'
+  - 'create faq content'
+  - 'create page content'
+  - 'create service content'
+  - 'create terms in stack'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'edit any article content'
+  - 'edit any case_study content'
+  - 'edit any faq content'
+  - 'edit any page content'
+  - 'edit any service content'
+  - 'translate editable entities'
+  - 'update content translations'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition submit_for_review'
+  - 'use text format markdown'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view the administration theme'

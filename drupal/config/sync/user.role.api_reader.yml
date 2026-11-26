@@ -1,0 +1,12 @@
+uuid: 84dfb452-676b-4129-b13a-365b394c63cf
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+id: api_reader
+label: 'Lecteur API'
+weight: 4
+is_admin: false
+permissions:
+  - 'access content'

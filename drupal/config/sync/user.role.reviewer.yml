@@ -1,0 +1,35 @@
+uuid: a19daa6a-637b-43ee-ac40-79ddde136104
+langcode: fr
+status: true
+dependencies:
+  config:
+    - filter.format.markdown
+    - node.type.article
+    - node.type.case_study
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - content_translation
+    - filter
+    - node
+    - system
+    - toolbar
+id: reviewer
+label: Relecteur
+weight: 3
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'edit any article content'
+  - 'edit any case_study content'
+  - 'translate editable entities'
+  - 'update content translations'
+  - 'use editorial transition publish'
+  - 'use editorial transition send_back'
+  - 'use text format markdown'
+  - 'view any unpublished content'
+  - 'view article revisions'
+  - 'view case_study revisions'
+  - 'view latest version'
+  - 'view the administration theme'

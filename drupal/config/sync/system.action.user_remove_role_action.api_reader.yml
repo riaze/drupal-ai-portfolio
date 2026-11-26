@@ -1,0 +1,14 @@
+uuid: fd050c9c-9b59-4367-a1c4-00f1eaf51147
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.api_reader
+  module:
+    - user
+id: user_remove_role_action.api_reader
+label: 'Enlever le rôle Lecteur API des utilisateurs sélectionnés'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: api_reader

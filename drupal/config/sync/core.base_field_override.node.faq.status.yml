@@ -1,0 +1,22 @@
+uuid: 2bec4902-8a45-49f1-862a-dfcb994ea870
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.faq
+id: node.faq.status
+field_name: status
+entity_type: node
+bundle: faq
+label: Publié
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

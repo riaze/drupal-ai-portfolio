@@ -1,0 +1,14 @@
+uuid: 4c6bda3e-d635-4183-af97-98faedcbd309
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.reviewer
+  module:
+    - user
+id: user_add_role_action.reviewer
+label: 'Ajouter le rôle Relecteur aux utilisateurs sélectionnés'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: reviewer

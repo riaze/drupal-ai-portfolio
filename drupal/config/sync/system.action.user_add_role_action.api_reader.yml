@@ -1,0 +1,14 @@
+uuid: c429c3f4-cd6c-4dad-adfc-313116707734
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.api_reader
+  module:
+    - user
+id: user_add_role_action.api_reader
+label: 'Ajouter le rôle Lecteur API aux utilisateurs sélectionnés'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: api_reader

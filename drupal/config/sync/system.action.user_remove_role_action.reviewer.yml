@@ -1,0 +1,14 @@
+uuid: 33e9d15d-8666-466a-aa4b-70ad72cfae0e
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.reviewer
+  module:
+    - user
+id: user_remove_role_action.reviewer
+label: 'Enlever le rôle Relecteur des utilisateurs sélectionnés'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: reviewer
