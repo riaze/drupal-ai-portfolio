@@ -27,12 +27,12 @@ help: ## List the available targets
 setup: ## First run: start DDEV, install dependencies, install the site from config, import content
 	cd $(DRUPAL_DIR) && ddev start
 	cd $(DRUPAL_DIR) && ddev composer install
-	@if cd $(DRUPAL_DIR) && ddev drush status --field=bootstrap 2>/dev/null | grep -q Successful; then \
+	cd $(DRUPAL_DIR) && if ddev drush status --field=bootstrap 2>/dev/null | grep -q Successful; then \
 	  echo "Site already installed: applying code and config (drush deploy)"; \
-	  cd $(DRUPAL_DIR) && ddev drush deploy -y; \
+	  ddev drush deploy -y; \
 	else \
 	  echo "Installing the site from drupal/config/sync"; \
-	  cd $(DRUPAL_DIR) && ddev drush site:install --existing-config --account-name=admin -y; \
+	  ddev drush site:install --existing-config --account-name=admin -y; \
 	  echo "Re-applying config/sync (core drops English on a French install, see docs/architecture.md)"; \
 	  ddev drush deploy -y; \
 	fi
