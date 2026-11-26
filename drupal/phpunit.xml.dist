@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PHPUnit for custom code. Run with `make test` (inside DDEV) or in CI. -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="web/core/tests/bootstrap.php"
+         colors="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutChangesToGlobalState="true"
+         failOnRisky="true"
+         failOnWarning="true"
+         failOnPhpunitWarning="true"
+         displayDetailsOnTestsThatTriggerErrors="true"
+         displayDetailsOnTestsThatTriggerWarnings="true"
+         displayDetailsOnTestsThatTriggerDeprecations="true"
+         cacheResult="false"
+         cacheDirectory=".phpunit.cache">
+  <php>
+    <ini name="error_reporting" value="32767"/>
+    <ini name="memory_limit" value="-1"/>
+    <!-- Kernel tests use a throwaway SQLite database unless SIMPLETEST_DB is set. -->
+    <env name="SIMPLETEST_DB" value="sqlite://localhost//tmp/portfolio-tests.sqlite" force="false"/>
+    <env name="SIMPLETEST_BASE_URL" value="http://localhost" force="false"/>
+    <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0" force="false"/>
+  </php>
+  <testsuites>
+    <testsuite name="custom">
+      <directory>web/modules/custom/*/tests/src/Unit</directory>
+      <directory>web/modules/custom/*/tests/src/Kernel</directory>
+    </testsuite>
+  </testsuites>
+  <source>
+    <include>
+      <directory>web/modules/custom</directory>
+      <directory>web/themes/custom</directory>
+    </include>
+  </source>
+</phpunit>

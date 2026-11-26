@@ -1,0 +1,23 @@
+# PHPStan on custom code, with phpstan-drupal and the deprecation rules
+# (loaded automatically by phpstan/extension-installer).
+parameters:
+  level: 6
+  paths:
+    - web/modules/custom
+    - web/themes/custom
+  fileExtensions:
+    - php
+    - module
+    - theme
+    - inc
+    - install
+  tmpDir: .phpstan-cache
+  treatPhpDocTypesAsCertain: false
+  ignoreErrors:
+    # Hook implementations receive untyped render arrays and, by Drupal
+    # convention (Coder: "Hook implementations should not duplicate @param
+    # documentation"), carry no @param tags. Core ignores this identifier
+    # everywhere; here it is ignored for theme hook classes only.
+    -
+      identifier: missingType.iterableValue
+      path: web/themes/custom/*/src/Hook/*
