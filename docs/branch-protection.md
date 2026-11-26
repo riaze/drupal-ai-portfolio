@@ -3,6 +3,11 @@
 `main` is what runs in production. It only changes through pull requests that
 pass CI.
 
+**Status:** applied on 2026-11-26 as the repository ruleset `protect-main`
+(Settings → Rules → Rulesets), with no bypass actors: the rules apply to
+administrators too. Only the owner has write access; anyone else can read,
+fork and propose pull requests, never push or merge.
+
 ## Rules
 
 | Rule | Setting |
@@ -16,7 +21,21 @@ pass CI.
 | Block force pushes and deletion | on |
 | Apply to administrators | on |
 
-Dependabot pull requests follow the same rules.
+Dependabot pull requests follow the same rules. The required checks are
+pinned to the GitHub Actions app, so a commit status from anything else cannot
+satisfy them.
+
+## Other repository settings (applied)
+
+| Area | Setting |
+| --- | --- |
+| Merging | Squash merge only, title from the pull request; branches deleted after merge |
+| Actions | Only GitHub-owned actions and `shivammathur/setup-php`; actions must be pinned to a full commit SHA |
+| Actions token | Read-only by default; workflows cannot approve pull requests |
+| Pull requests from forks | Workflows wait for owner approval for every external contributor |
+| Secrets | Secret scanning and push protection on (plus gitleaks in CI) |
+| Dependencies | Dependabot alerts and security updates on |
+| Vulnerability reports | Private vulnerability reporting on (Security tab) |
 
 ## Apply with the GitHub CLI
 
