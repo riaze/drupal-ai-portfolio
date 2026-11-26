@@ -33,6 +33,8 @@ setup: ## First run: start DDEV, install dependencies, install the site from con
 	else \
 	  echo "Installing the site from drupal/config/sync"; \
 	  cd $(DRUPAL_DIR) && ddev drush site:install --existing-config --account-name=admin -y; \
+	  echo "Re-applying config/sync (core drops English on a French install, see docs/architecture.md)"; \
+	  ddev drush deploy -y; \
 	fi
 	$(MAKE) import-content
 	@cd $(DRUPAL_DIR) && ddev drush user:login --no-browser
