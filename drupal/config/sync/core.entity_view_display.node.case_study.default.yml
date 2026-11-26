@@ -1,0 +1,99 @@
+uuid: 90124971-65a5-4ed9-bb20-139cb84a7f5c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.case_study.field_demo_link
+    - field.field.node.case_study.field_image
+    - field.field.node.case_study.field_problem
+    - field.field.node.case_study.field_repo_link
+    - field.field.node.case_study.field_results
+    - field.field.node.case_study.field_solution
+    - field.field.node.case_study.field_stack
+    - field.field.node.case_study.field_summary
+    - node.type.case_study
+    - responsive_image.styles.portfolio_content
+  module:
+    - link
+    - responsive_image
+    - text
+id: node.case_study.default
+targetEntityType: node
+bundle: case_study
+mode: default
+content:
+  field_demo_link:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: portfolio_content
+      image_link: ''
+      image_loading:
+        attribute: eager
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_problem:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_repo_link:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_results:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_solution:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_stack:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  content_moderation_control: true
+  langcode: true
+  links: true

@@ -1,0 +1,21 @@
+uuid: 4d65e818-6002-4ca3-8251-92df85315518
+langcode: fr
+status: true
+dependencies: {  }
+name: portfolio_1920w
+label: 'Largeur 1920 (WebP)'
+effects:
+  99157544-bcb1-468e-9f93-0f3c78fd8d7e:
+    uuid: 99157544-bcb1-468e-9f93-0f3c78fd8d7e
+    id: image_scale
+    weight: 1
+    data:
+      width: 1920
+      height: null
+      upscale: false
+  11f53877-c5d8-4299-8836-caa96b55ea8c:
+    uuid: 11f53877-c5d8-4299-8836-caa96b55ea8c
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

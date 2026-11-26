@@ -1,0 +1,21 @@
+uuid: 534ea2fa-41cf-421d-a3a0-b3140f04fb85
+langcode: fr
+status: true
+dependencies: {  }
+name: portfolio_card_800
+label: 'Carte 800×450 (WebP)'
+effects:
+  dc652f5e-e394-4df6-9609-34269b1fc521:
+    uuid: dc652f5e-e394-4df6-9609-34269b1fc521
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 450
+      anchor: center-center
+  d0d39c1d-c1f7-46f1-8a25-975580d29ac9:
+    uuid: d0d39c1d-c1f7-46f1-8a25-975580d29ac9
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

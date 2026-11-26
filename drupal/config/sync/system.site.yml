@@ -4,7 +4,7 @@ langcode: fr
 uuid: 1f378ce7-ba83-404d-9b2f-5bc09625dbe6
 name: 'Portfolio Drupal & IA'
 mail: noreply@example.com
-slogan: ''
+slogan: 'Développement Drupal et intégration de l’IA'
 page:
   403: ''
   404: ''

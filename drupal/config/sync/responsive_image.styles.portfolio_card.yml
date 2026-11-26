@@ -1,0 +1,21 @@
+uuid: f9402f57-24cf-4058-bd5c-5c98e4d9e358
+langcode: fr
+status: true
+dependencies:
+  config:
+    - image.style.portfolio_card_480
+    - image.style.portfolio_card_800
+id: portfolio_card
+label: Carte
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 64rem) 20rem, (min-width: 40rem) calc(50vw - 3rem), calc(100vw - 2rem)'
+      sizes_image_styles:
+        portfolio_card_480: portfolio_card_480
+        portfolio_card_800: portfolio_card_800
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: portfolio_card_480

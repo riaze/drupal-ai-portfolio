@@ -1,0 +1,21 @@
+uuid: 652fad2e-3eba-40d6-9669-24eaf52b16b3
+langcode: fr
+status: true
+dependencies: {  }
+name: portfolio_1280w
+label: 'Largeur 1280 (WebP)'
+effects:
+  159d5f1f-6b73-4e26-89c1-aa95ffedcad6:
+    uuid: 159d5f1f-6b73-4e26-89c1-aa95ffedcad6
+    id: image_scale
+    weight: 1
+    data:
+      width: 1280
+      height: null
+      upscale: false
+  59f3ab13-99e9-427b-8317-1fdf3163f845:
+    uuid: 59f3ab13-99e9-427b-8317-1fdf3163f845
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

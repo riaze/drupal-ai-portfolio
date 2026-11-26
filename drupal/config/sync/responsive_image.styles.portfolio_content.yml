@@ -1,0 +1,25 @@
+uuid: a486604e-2784-4bcc-b10d-cc4f7290687c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - image.style.portfolio_1280w
+    - image.style.portfolio_1920w
+    - image.style.portfolio_640w
+    - image.style.portfolio_960w
+id: portfolio_content
+label: 'Contenu pleine largeur'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 64rem) 60rem, calc(100vw - 2rem)'
+      sizes_image_styles:
+        portfolio_640w: portfolio_640w
+        portfolio_960w: portfolio_960w
+        portfolio_1280w: portfolio_1280w
+        portfolio_1920w: portfolio_1920w
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: portfolio_960w

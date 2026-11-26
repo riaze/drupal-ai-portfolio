@@ -1,0 +1,12 @@
+uuid: 94e640c1-f0b3-4f23-982e-9845078a49f3
+langcode: fr
+status: true
+dependencies: {  }
+id: feedback
+label: Contact
+recipients:
+  - contact@example.com
+reply: ''
+weight: 0
+message: 'Merci, votre message a bien été envoyé. Je vous réponds dès que possible.'
+redirect: ''

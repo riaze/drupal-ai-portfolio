@@ -1,0 +1,21 @@
+uuid: ab80827c-093e-4d6d-ad4d-efba8e677a6f
+langcode: fr
+status: true
+dependencies: {  }
+name: portfolio_card_480
+label: 'Carte 480×270 (WebP)'
+effects:
+  dd869c00-fae8-480c-a8b0-e6146da10132:
+    uuid: dd869c00-fae8-480c-a8b0-e6146da10132
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 270
+      anchor: center-center
+  65d1ab80-4420-4207-8d9b-30d3ef73dd10:
+    uuid: 65d1ab80-4420-4207-8d9b-30d3ef73dd10
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

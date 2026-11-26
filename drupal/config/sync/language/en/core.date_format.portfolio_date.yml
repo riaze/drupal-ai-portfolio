@@ -1,0 +1,2 @@
+label: 'Date (day month year)'
+pattern: 'F j, Y'

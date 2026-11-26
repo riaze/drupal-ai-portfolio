@@ -1,0 +1,27 @@
+uuid: 5264eba5-b5bd-479d-ab20-35fd6027e681
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.faq.body
+    - field.field.node.faq.field_faq_category
+    - node.type.faq
+  module:
+    - text
+id: node.faq.teaser
+targetEntityType: node
+bundle: faq
+mode: teaser
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_faq_category: true
+  langcode: true
+  links: true

@@ -1,0 +1,21 @@
+uuid: 291d784e-e1ad-4df4-93bc-c7e190ac51e4
+langcode: fr
+status: true
+dependencies: {  }
+name: portfolio_960w
+label: 'Largeur 960 (WebP)'
+effects:
+  c1668cbd-f367-4fc1-8882-337ff89eb6d0:
+    uuid: c1668cbd-f367-4fc1-8882-337ff89eb6d0
+    id: image_scale
+    weight: 1
+    data:
+      width: 960
+      height: null
+      upscale: false
+  b5a23270-5373-4425-a368-f965caf5ba89:
+    uuid: b5a23270-5373-4425-a368-f965caf5ba89
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

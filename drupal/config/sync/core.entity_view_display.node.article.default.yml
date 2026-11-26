@@ -1,0 +1,63 @@
+uuid: 328e7719-f003-4dd2-a34f-a312318675c6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.article.body
+    - field.field.node.article.field_ai_review_status
+    - field.field.node.article.field_image
+    - field.field.node.article.field_published_date
+    - field.field.node.article.field_summary
+    - field.field.node.article.field_tags
+    - node.type.article
+    - responsive_image.styles.portfolio_content
+  module:
+    - datetime
+    - responsive_image
+    - text
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: portfolio_content
+      image_link: ''
+      image_loading:
+        attribute: eager
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_published_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: portfolio_date
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  content_moderation_control: true
+  field_ai_review_status: true
+  field_summary: true
+  langcode: true
+  links: true

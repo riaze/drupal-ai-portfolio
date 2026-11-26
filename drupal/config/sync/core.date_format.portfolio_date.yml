@@ -1,0 +1,8 @@
+uuid: a83449b1-de39-40ba-88e7-33001cf517c6
+langcode: fr
+status: true
+dependencies: {  }
+id: portfolio_date
+label: 'Date (jour mois année)'
+locked: false
+pattern: 'j F Y'

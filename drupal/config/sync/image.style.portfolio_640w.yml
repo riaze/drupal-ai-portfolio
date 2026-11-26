@@ -1,0 +1,21 @@
+uuid: d8ef77fa-60ca-44f2-910c-0c1a5b8c3c3b
+langcode: fr
+status: true
+dependencies: {  }
+name: portfolio_640w
+label: 'Largeur 640 (WebP)'
+effects:
+  f41edef6-0331-49e8-8cff-242ea8f49e65:
+    uuid: f41edef6-0331-49e8-8cff-242ea8f49e65
+    id: image_scale
+    weight: 1
+    data:
+      width: 640
+      height: null
+      upscale: false
+  f1fbb899-e038-479f-8587-2dd0a593aa32:
+    uuid: f1fbb899-e038-479f-8587-2dd0a593aa32
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
