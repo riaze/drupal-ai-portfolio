@@ -18,7 +18,7 @@ else
   DRUSH := cd $(DRUPAL_DIR) && ddev drush
 endif
 
-.PHONY: help setup start stop lint test import-content export-config config-check secrets-scan hooks
+.PHONY: help setup start stop lint test import-content export-config config-check secrets-scan hooks lighthouse
 
 help: ## List the available targets
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | sort | \
@@ -62,6 +62,9 @@ config-check: ## Fail if the active configuration differs from drupal/config/syn
 
 secrets-scan: ## Scan the whole Git history for secrets (needs gitleaks on the host)
 	gitleaks git --redact --verbose .
+
+lighthouse: ## Lighthouse scores of key pages (needs Node.js and Chrome on the host)
+	scripts/lighthouse.sh
 
 hooks: ## Install the Git hooks (pre-commit and commit-msg)
 	pre-commit install --hook-type pre-commit --hook-type commit-msg
