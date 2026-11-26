@@ -1,0 +1,33 @@
+uuid: ce234dea-30f3-41c0-b45c-51addc55ea52
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_ai_review_status
+field_name: field_ai_review_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: Aucune
+    -
+      value: suggested
+      label: 'Suggestion en attente'
+    -
+      value: approved
+      label: Approuvée
+    -
+      value: rejected
+      label: Rejetée
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 967786a8-258f-4fa0-8c4d-928b5353338a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.faq
+  module:
+    - node
+id: faq
+label: FAQ
+type: 'canonical_entities:node'
+pattern: '/faq/[node:title]'
+selection_criteria:
+  e8f50540-4f03-44eb-bc4a-99d5c2a9ac5c:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      faq: faq
+selection_logic: and
+weight: 5
+relationships: {  }

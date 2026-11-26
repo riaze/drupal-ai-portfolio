@@ -1,0 +1,11 @@
+uuid: d06efc23-8b70-4c40-b0ee-e01ddc3ee702
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PWTsHiwkIfp5TW-iTBc9AhBtvbYY6wrp3MopazQ-95o
+name: Étiquettes
+vid: tags
+description: 'Sujets des articles, par langue.'
+weight: 0
+new_revision: false

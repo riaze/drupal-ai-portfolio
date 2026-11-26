@@ -1,0 +1,9 @@
+uuid: 327e6ec7-b07b-47fc-871a-3e0e4ca0c612
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Catégories de FAQ'
+vid: faq_category
+description: 'Regroupement des questions fréquentes.'
+weight: 0
+new_revision: false

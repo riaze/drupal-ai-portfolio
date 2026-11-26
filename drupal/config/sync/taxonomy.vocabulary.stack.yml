@@ -1,0 +1,9 @@
+uuid: 2ff5c9f6-29c6-40c7-8bee-55512a0481e5
+langcode: fr
+status: true
+dependencies: {  }
+name: Technologies
+vid: stack
+description: 'Technologies utilisées dans les études de cas (noms identiques dans les deux langues).'
+weight: 0
+new_revision: false

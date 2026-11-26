@@ -1,0 +1,29 @@
+uuid: 56063f02-0144-4016-9f6a-5a55bd739e73
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_stack
+    - node.type.case_study
+    - taxonomy.vocabulary.stack
+id: node.case_study.field_stack
+field_name: field_stack
+entity_type: node
+bundle: case_study
+label: Technologies
+description: 'Séparées par des virgules.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      stack: stack
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: stack
+field_type: entity_reference

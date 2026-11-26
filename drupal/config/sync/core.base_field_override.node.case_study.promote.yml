@@ -1,0 +1,22 @@
+uuid: e8a02ee5-59fa-4225-8fa3-87c638764abf
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.case_study
+id: node.case_study.promote
+field_name: promote
+entity_type: node
+bundle: case_study
+label: "Promu en page d'accueil"
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

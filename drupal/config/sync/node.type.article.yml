@@ -1,0 +1,17 @@
+uuid: 4d502db5-8475-4958-86e2-ea38faa57148
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Article
+type: article
+description: 'Un billet de blog.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,64 @@
+uuid: 04bd493e-c70d-46e5-9d3d-811df7deef8a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.case_study
+  module:
+    - content_moderation
+_core:
+  default_config_hash: T7gMMyFbTYLalxpIOnzJebvek2OW0b1RgLVE9I2y228
+id: editorial
+label: Éditorial
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      label: Brouillon
+      weight: -5
+      published: false
+      default_revision: false
+    published:
+      label: Publié
+      weight: 5
+      published: true
+      default_revision: true
+    review:
+      label: 'En relecture'
+      weight: 0
+      published: false
+      default_revision: false
+  transitions:
+    create_new_draft:
+      label: 'Créer un brouillon'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    publish:
+      label: Publier
+      from:
+        - review
+        - published
+      to: published
+      weight: 3
+    send_back:
+      label: 'Renvoyer en brouillon'
+      from:
+        - review
+      to: draft
+      weight: 2
+    submit_for_review:
+      label: 'Soumettre en relecture'
+      from:
+        - draft
+        - review
+      to: review
+      weight: 1
+  entity_types:
+    node:
+      - article
+      - case_study
+  default_moderation_state: draft

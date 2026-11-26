@@ -1,0 +1,19 @@
+uuid: 8fe97760-68bb-4b4b-a678-4db9d50a676d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.service
+id: node.service.field_summary
+field_name: field_summary
+entity_type: node
+bundle: service
+label: Résumé
+description: 'Une ou deux phrases, affichées sur les cartes et dans les moteurs de recherche.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

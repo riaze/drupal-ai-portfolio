@@ -1,0 +1,19 @@
+uuid: 4233aee4-8009-4e0c-8120-bf5a013e2a85
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.article
+id: node.article.field_summary
+field_name: field_summary
+entity_type: node
+bundle: article
+label: Résumé
+description: 'Vide par défaut : il pourra être rédigé ou proposé par l’assistant IA puis validé.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

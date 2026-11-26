@@ -1,0 +1,17 @@
+uuid: b8fccd07-1bfc-412d-abe3-e6b846e2a8f1
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Étude de cas'
+type: case_study
+description: 'Une réalisation : problème, solution, résultats.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

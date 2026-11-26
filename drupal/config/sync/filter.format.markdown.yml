@@ -1,0 +1,16 @@
+uuid: 30beb7cf-c0ac-4f9b-bf31-69401210afac
+langcode: fr
+status: true
+dependencies:
+  module:
+    - portfolio_content
+name: Markdown
+format: markdown
+weight: -10
+filters:
+  portfolio_markdown:
+    id: portfolio_markdown
+    provider: portfolio_content
+    status: true
+    weight: -20
+    settings: {  }

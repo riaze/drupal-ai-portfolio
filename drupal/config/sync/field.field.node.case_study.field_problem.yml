@@ -1,0 +1,24 @@
+uuid: 7bbd6bcb-2349-43b2-920e-eb4ceed05b74
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_problem
+    - filter.format.markdown
+    - node.type.case_study
+  module:
+    - text
+id: node.case_study.field_problem
+field_name: field_problem
+entity_type: node
+bundle: case_study
+label: Problème
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - markdown
+field_type: text_long

@@ -1,0 +1,17 @@
+uuid: fc123b29-8fab-4716-83aa-f64f39a8a383
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Service
+type: service
+description: 'Une offre de prestation.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,16 @@
+uuid: 3e5a83d8-b485-486a-8577-b3dc2014ae5a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.stack
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: taxonomy_term.stack
+target_entity_type_id: taxonomy_term
+target_bundle: stack
+default_langcode: zxx
+language_alterable: false

@@ -1,0 +1,24 @@
+uuid: 87d8eeb6-e5a6-454e-96eb-5306f4ebd6bb
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.markdown
+    - node.type.article
+  module:
+    - text
+id: node.article.body
+field_name: body
+entity_type: node
+bundle: article
+label: Contenu
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - markdown
+field_type: text_long

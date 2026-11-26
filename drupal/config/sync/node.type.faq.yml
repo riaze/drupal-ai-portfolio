@@ -1,0 +1,17 @@
+uuid: 9904190d-d10c-4bf2-a533-aec10a768dd7
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: FAQ
+type: faq
+description: 'Une question fréquente et sa réponse.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

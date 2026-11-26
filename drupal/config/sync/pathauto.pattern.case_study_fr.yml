@@ -1,0 +1,33 @@
+uuid: 309c57da-41bc-460d-9504-100276c9eefe
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.case_study
+  module:
+    - language
+    - node
+id: case_study_fr
+label: 'Études de cas (FR)'
+type: 'canonical_entities:node'
+pattern: '/realisations/[node:title]'
+selection_criteria:
+  94852467-5d1d-4449-bc9c-123cb56aa735:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      case_study: case_study
+  ed550240-7803-45cb-becd-66c088477267:
+    id: language
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      fr: fr
+selection_logic: and
+weight: 2
+relationships:
+  'node:langcode:language':
+    label: Language

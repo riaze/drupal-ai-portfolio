@@ -1,0 +1,19 @@
+uuid: fe2941d5-7052-4bb7-85c9-f6073191511b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+      - footer
+    parent: 'main:'
+name: Page
+type: page
+description: 'Pages fixes : accueil, à propos, mentions légales, confidentialité.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,10 @@
+settings:
+  allowed_values:
+    -
+      label: None
+    -
+      label: 'Suggestion pending'
+    -
+      label: Approved
+    -
+      label: Rejected

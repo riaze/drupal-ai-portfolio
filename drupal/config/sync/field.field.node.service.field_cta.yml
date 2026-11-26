@@ -1,0 +1,23 @@
+uuid: f1ac9a2c-9517-4201-b606-2ebd6769d312
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cta
+    - node.type.service
+  module:
+    - link
+id: node.service.field_cta
+field_name: field_cta
+entity_type: node
+bundle: service
+label: 'Appel à l’action'
+description: 'Lien et libellé du bouton, par exemple « /contact » et « Parlons de votre projet ».'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

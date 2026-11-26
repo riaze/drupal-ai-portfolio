@@ -1,0 +1,22 @@
+uuid: df159d6f-ce70-4920-b49f-d929ed0dd207
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.faq
+id: node.faq.promote
+field_name: promote
+entity_type: node
+bundle: faq
+label: "Promu en page d'accueil"
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean
