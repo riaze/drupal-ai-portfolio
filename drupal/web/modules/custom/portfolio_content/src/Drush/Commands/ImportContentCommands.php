@@ -45,7 +45,12 @@ final class ImportContentCommands extends DrushCommands {
       return self::EXIT_FAILURE;
     }
 
-    $counts = array_fill_keys([ImportResult::CREATED, ImportResult::UPDATED, ImportResult::UNCHANGED, ImportResult::ERROR], 0);
+    $counts = array_fill_keys([
+      ImportResult::CREATED,
+      ImportResult::UPDATED,
+      ImportResult::UNCHANGED,
+      ImportResult::ERROR,
+    ], 0);
     $rows = [];
     foreach ($results as $result) {
       $counts[$result->action]++;

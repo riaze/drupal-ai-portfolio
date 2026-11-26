@@ -183,7 +183,12 @@ final class ContentImporter {
       $term = reset($terms);
       $action = $term ? ImportResult::UNCHANGED : ImportResult::CREATED;
       if (!$term instanceof TermInterface) {
-        $term = $storage->create(['vid' => 'faq_category', 'uuid' => $uuid, 'langcode' => $source_langcode, 'name' => $translations[$source_langcode]]);
+        $term = $storage->create([
+          'vid' => 'faq_category',
+          'uuid' => $uuid,
+          'langcode' => $source_langcode,
+          'name' => $translations[$source_langcode],
+        ]);
         assert($term instanceof TermInterface);
       }
       foreach ($translations as $langcode => $label) {
@@ -411,7 +416,12 @@ final class ContentImporter {
         continue;
       }
       if ($node === NULL) {
-        $node = $storage->create(['type' => $type, 'uuid' => self::uuid("node:$id"), 'langcode' => $langcode, 'uid' => 1]);
+        $node = $storage->create([
+          'type' => $type,
+          'uuid' => self::uuid("node:$id"),
+          'langcode' => $langcode,
+          'uid' => 1,
+        ]);
         assert($node instanceof NodeInterface);
         $translation = $node;
         // Suggestions start empty; the importer never touches them later.
@@ -474,7 +484,11 @@ final class ContentImporter {
     switch ($type) {
       case 'service':
         $node->set('field_weight', (int) $document->get('order', 0));
-        $node->set('field_cta', $document->string('cta_url') === '' ? [] : ['uri' => self::linkUri($document->string('cta_url')), 'title' => $document->string('cta_label')]);
+        $cta_url = $document->string('cta_url');
+        $node->set('field_cta', $cta_url === '' ? [] : [
+          'uri' => self::linkUri($cta_url),
+          'title' => $document->string('cta_label'),
+        ]);
         break;
 
       case 'case_study':
@@ -527,7 +541,7 @@ final class ContentImporter {
   /**
    * Returns the managed file for an image of content/, copying it if needed.
    */
-  private function file(string $root, string $relative): ?FileInterface {
+  private function file(string $root, string $relative): FileInterface {
     $storage = $this->entityTypeManager->getStorage('file');
     $uuid = self::uuid("file:$relative");
     $files = $storage->loadByProperties(['uuid' => $uuid]);
@@ -608,7 +622,11 @@ final class ContentImporter {
       return;
     }
     if (!$link instanceof ContentEntityInterface) {
-      $link = $storage->create(['uuid' => self::uuid("menu_link_content:$id"), 'langcode' => $source->langcode, 'bundle' => 'menu_link_content']);
+      $link = $storage->create([
+        'uuid' => self::uuid("menu_link_content:$id"),
+        'langcode' => $source->langcode,
+        'bundle' => 'menu_link_content',
+      ]);
       assert($link instanceof ContentEntityInterface);
     }
     $link->set('menu_name', $menu);

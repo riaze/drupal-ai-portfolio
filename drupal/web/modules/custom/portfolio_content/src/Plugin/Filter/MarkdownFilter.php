@@ -34,7 +34,7 @@ final class MarkdownFilter extends FilterBase {
   /**
    * The converter, built on first use.
    */
-  private ?MarkdownConverter $converter = NULL;
+  protected ?MarkdownConverter $converter = NULL;
 
   /**
    * {@inheritdoc}
@@ -45,6 +45,9 @@ final class MarkdownFilter extends FilterBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @param bool $long
+   *   Whether to return the long version of the tips.
    */
   public function tips($long = FALSE): string {
     return (string) $this->t('Write in <a href=":url">Markdown</a>. Start sections with <code>##</code>. HTML tags are shown as text.', [

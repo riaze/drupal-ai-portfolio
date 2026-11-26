@@ -26,6 +26,8 @@ final class MarkdownDocument {
   public const PLACEHOLDER_PATTERN = '/\[\[[^\]\n]+\]\]/u';
 
   /**
+   * Builds a parsed document; use ::parse() to read a file.
+   *
    * @param string $path
    *   Path relative to the content directory, for messages.
    * @param string $langcode
