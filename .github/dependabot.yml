@@ -1,0 +1,41 @@
+# Dependency updates: weekly, grouped, with Conventional Commit messages.
+# https://docs.github.com/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+version: 2
+updates:
+  - package-ecosystem: composer
+    directory: /drupal
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: build(deps)
+      prefix-development: build(deps-dev)
+    groups:
+      drupal-core:
+        patterns: ["drupal/core*"]
+      drupal-contrib:
+        patterns: ["drupal/*"]
+        exclude-patterns: ["drupal/core*"]
+      dev-tools:
+        dependency-type: development
+    ignore:
+      # Drupal 12 requires PHP 8.5: a planned migration, not a weekly bump.
+      - dependency-name: "drupal/core*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    commit-message:
+      prefix: ci
+
+  - package-ecosystem: pip
+    directory: /ai-service
+    schedule:
+      interval: weekly
+      day: monday
+    commit-message:
+      prefix: build(deps)
